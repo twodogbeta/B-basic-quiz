@@ -6,6 +6,7 @@ import com.thoughtworks.capability.gtb.basicquiz.service.EducationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 
 @RestController
@@ -21,7 +22,7 @@ public class EducationController {
     @PostMapping("/{id}/educations")
     @ResponseStatus(HttpStatus.CREATED)
     public Long addUserEducationInfoByUserId(@PathVariable Long id,
-                                             @RequestBody Education education) throws UserNotFoundException {
+                                             @RequestBody @Valid Education education) throws UserNotFoundException {
        return educationService.addUserEducationsByUserId(id, education);
     }
 

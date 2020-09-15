@@ -6,6 +6,8 @@ import com.thoughtworks.capability.gtb.basicquiz.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/users")
@@ -18,7 +20,7 @@ public class UserController {
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public Long createNewUser(@RequestBody User user) {
+    public Long createNewUser(@RequestBody @Valid User user) {
         return userService.createNewUser(user);
     }
 
