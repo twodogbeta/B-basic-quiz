@@ -5,12 +5,18 @@ import com.thoughtworks.capability.gtb.basicquiz.exception.UserNotFoundException
 import com.thoughtworks.capability.gtb.basicquiz.repository.EducationRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class EducationService {
     private final EducationRepository educationRepository = new EducationRepository();
 
-    public String addUserEducationsByUserId(long userId, Education education) throws UserNotFoundException {
+    public Long addUserEducationsByUserId(long userId, Education education) throws UserNotFoundException {
        return educationRepository.addUserEducationsByUserId(userId,education);
+    }
+
+    public ArrayList<Education> getUserEducationsByUserId(long userId) throws UserNotFoundException {
+        return educationRepository.getUserEducationsByUserId(userId);
     }
 
 

@@ -10,15 +10,24 @@ import java.util.Map;
 
 @Repository
 public class EducationRepository {
-   public static Map<Long, ArrayList<Education>> educationMap = new HashMap<>();
+    public static Map<Long, ArrayList<Education>> educationMap = new HashMap<>();
 
-   public String addUserEducationsByUserId(long userId, Education education) throws UserNotFoundException {
-      ArrayList<Education> educationInfo = educationMap.get(userId);
-      if (educationInfo == null){
-         throw new UserNotFoundException("User does not exist!");
-      }else{
-         educationInfo.add(education);
-         return "user"+userId+" educationInfo Created! \n";
-      }
-   }
+    public Long addUserEducationsByUserId(long userId, Education education) throws UserNotFoundException {
+        ArrayList<Education> educationInfo = educationMap.get(userId);
+        if (educationInfo == null) {
+            throw new UserNotFoundException("User does not exist!");
+        } else {
+            educationInfo.add(education);
+            return userId;
+        }
+    }
+
+    public ArrayList<Education> getUserEducationsByUserId(long userId) throws UserNotFoundException {
+        ArrayList<Education> educationInfo = educationMap.get(userId);
+        if (educationInfo == null) {
+            throw new UserNotFoundException("User does not exist!");
+        } else {
+            return educationInfo;
+        }
+    }
 }

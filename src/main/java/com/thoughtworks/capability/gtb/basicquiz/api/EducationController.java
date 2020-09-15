@@ -6,6 +6,8 @@ import com.thoughtworks.capability.gtb.basicquiz.service.EducationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @RestController
 @RequestMapping("/users")
 public class EducationController {
@@ -17,8 +19,14 @@ public class EducationController {
 
     @PostMapping("/{id}/educations")
     @ResponseStatus(HttpStatus.CREATED)
-    public String addUserEducationInfoByUserId(@PathVariable Long id,
+    public Long addUserEducationInfoByUserId(@PathVariable Long id,
                                              @RequestBody Education education) throws UserNotFoundException {
        return educationService.addUserEducationsByUserId(id, education);
     }
+
+    @GetMapping("/{id}/educations")
+    public ArrayList<Education> getUserEducationInfoById(@PathVariable Long id) throws UserNotFoundException {
+        return educationService.getUserEducationsByUserId(id);
+    }
+
 }
