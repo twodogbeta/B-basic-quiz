@@ -1,6 +1,7 @@
 package com.thoughtworks.capability.gtb.basicquiz.api;
 
 import com.thoughtworks.capability.gtb.basicquiz.domin.Education;
+import com.thoughtworks.capability.gtb.basicquiz.dto.EducationDto;
 import com.thoughtworks.capability.gtb.basicquiz.exception.UserNotFoundException;
 import com.thoughtworks.capability.gtb.basicquiz.service.EducationService;
 import org.springframework.http.HttpStatus;
@@ -27,7 +28,7 @@ public class EducationController {
     }
 
     @GetMapping("/{id}/educations")
-    public ArrayList<Education> getUserEducationInfoById(@PathVariable Long id) throws UserNotFoundException {
+    public ArrayList<EducationDto> getUserEducationInfoById(@PathVariable Long id) throws UserNotFoundException {
         return educationService.getUserEducationsByUserId(id);
     }
 

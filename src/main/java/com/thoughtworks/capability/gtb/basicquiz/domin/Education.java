@@ -12,10 +12,9 @@ import javax.validation.constraints.Size;
 @Builder
 public class Education {
 
-    @NotNull
     private long year;
-    @Size(min = 1,max = 256)
+    @Size(min = 1,max = 256, message = "参数不合法：教育经历标题的长度范围应在1 - 256 bytes")
     private String title;
-    @Size(min = 1,max = 4096)
+    @Size(min = 1,max = 4096, message = "参数不合法：教育经历描述的长度范围应在1 - 4096 bytes")
     private String description;
 }
