@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/users")
 public class EducationController {
     private final EducationService educationService;
