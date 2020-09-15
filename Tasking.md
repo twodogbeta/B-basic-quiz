@@ -1,0 +1,19 @@
+1. 初始化项目
+2. 初始化项目架构：新建架构包
+    - api
+    - domain
+    - exception
+    - repository
+    - service
+    - vo
+3. 实现User-API
+    1. domian:新建User实体
+    2. api:UserController:
+        - 创建新的个人基本信息
+        - 查询个人基本信息
+4. 实现UserEducation-API
+    1. domain:新建UserEducation实体
+    2. api：UserEducationController
+        -  增加新的个人教育经历
+        -  查询个人教育经历列表
+5. 处理返回结果
