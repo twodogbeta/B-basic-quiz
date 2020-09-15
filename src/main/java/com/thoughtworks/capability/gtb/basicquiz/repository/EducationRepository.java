@@ -5,9 +5,7 @@ import com.thoughtworks.capability.gtb.basicquiz.dto.EducationDto;
 import com.thoughtworks.capability.gtb.basicquiz.exception.UserNotFoundException;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class EducationRepository {
@@ -39,6 +37,18 @@ public class EducationRepository {
         if (educationInfo == null) {
             throw new UserNotFoundException("User does not exist!");
         } else {
+            Collections.sort(educationInfo, new Comparator<EducationDto>(){
+                public int compare(EducationDto o1, EducationDto o2) {
+                    //排序属性
+                    if(o1.getYear() < o2.getYear()){
+                        return -1;
+                    }
+                    if(o1.getYear() == o2.getYear()){
+                        return 0;
+                    }
+                    return 1;
+                }
+            });
             return educationInfo;
         }
     }
