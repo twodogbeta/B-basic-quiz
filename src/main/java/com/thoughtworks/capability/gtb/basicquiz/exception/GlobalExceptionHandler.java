@@ -23,11 +23,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity invalidParameter(Exception ex) {
+        String er =  ((MethodArgumentNotValidException) ex).getBindingResult().getAllErrors().get(0).getDefaultMessage();
         Error error = Error.builder()
                 .time(LocalDateTime.now().toString())
                 .status(HttpStatus.BAD_REQUEST.value())
                 .error(HttpStatus.BAD_REQUEST.getReasonPhrase())
-                .message(ex.getMessage()).build();
+                .message(er).build();
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
 
     }
