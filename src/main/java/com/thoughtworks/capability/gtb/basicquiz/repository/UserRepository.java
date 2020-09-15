@@ -1,5 +1,6 @@
 package com.thoughtworks.capability.gtb.basicquiz.repository;
 import com.thoughtworks.capability.gtb.basicquiz.domin.User;
+import com.thoughtworks.capability.gtb.basicquiz.exception.UserNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -17,5 +18,14 @@ public class UserRepository {
         userMap.put(user.getId(),user);
         userId++;
         return responseUserId;
+    }
+
+    public User getUserById(long userId) throws UserNotFoundException {
+        User user = userMap.get(userId);
+        if ((user == null)){
+            throw new UserNotFoundException("User does not exist!");
+        }else{
+            return user;
+        }
     }
 }
