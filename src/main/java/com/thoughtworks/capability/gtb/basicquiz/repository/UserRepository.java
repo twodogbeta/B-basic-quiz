@@ -11,11 +11,13 @@ import java.util.Map;
 public class UserRepository {
     private Long userId = 1L;
     public static Map<Long, User> userMap = new HashMap<>();
+    private final EducationRepository educationRepository = new EducationRepository();
 
     public long createNewUser(User user){
         long responseUserId = userId;
         user.setId(userId);
         userMap.put(user.getId(),user);
+        educationRepository.educationMap.put(user.getId(),new ArrayList<>());
         userId++;
         return responseUserId;
     }

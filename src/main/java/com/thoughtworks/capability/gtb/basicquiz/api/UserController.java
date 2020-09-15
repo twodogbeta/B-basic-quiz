@@ -22,7 +22,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUserBasicInfomation(@PathVariable Long id) throws UserNotFoundException {
+    public User getUserBasicInformation(@PathVariable Long id) throws UserNotFoundException {
         return userService.getUserById(id);
     }
 
