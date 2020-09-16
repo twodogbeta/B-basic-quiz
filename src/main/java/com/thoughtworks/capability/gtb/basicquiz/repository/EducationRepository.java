@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+// GTB: - 如果 EducationRepository.education2educationDto() 不放到 repo 里就好了
 @Repository
 public class EducationRepository {
     public static Map<Long, ArrayList<EducationDto>> educationMap = new HashMap<>();

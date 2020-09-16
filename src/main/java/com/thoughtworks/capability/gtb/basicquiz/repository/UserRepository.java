@@ -23,6 +23,7 @@ public class UserRepository {
 
     public User getUserById(long userId) throws UserNotFoundException {
         User user = userMap.get(userId);
+        // GTB: 这个写法可以简化
         if ((user == null)){
             throw new UserNotFoundException("User does not exist!");
         }else{

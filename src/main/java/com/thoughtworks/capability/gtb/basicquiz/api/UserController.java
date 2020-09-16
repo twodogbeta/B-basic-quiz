@@ -18,7 +18,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Long createNewUser(@RequestBody @Valid User user) {
         return userService.createNewUser(user);
