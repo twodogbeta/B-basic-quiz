@@ -13,10 +13,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Repository
-//public class EducationRepository {
 public interface EducationRepository extends JpaRepository<Education, Long>{
     @Query(nativeQuery = true, value = "SELECT * FROM education WHERE user_id = :userId")
-    List<Education> findAllByUserId(@Param("userId") Long userId);
+    List<Education> findAllByUserId(Long userId);
 
        // public static Map<Long, ArrayList<EducationDto>> educationMap = new HashMap<>();
 
