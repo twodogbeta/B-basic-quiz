@@ -1,6 +1,7 @@
 package com.thoughtworks.capability.gtb.basicquiz.api;
 
 import com.thoughtworks.capability.gtb.basicquiz.domin.User;
+import com.thoughtworks.capability.gtb.basicquiz.dto.UserDto;
 import com.thoughtworks.capability.gtb.basicquiz.exception.UserNotFoundException;
 import com.thoughtworks.capability.gtb.basicquiz.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -20,8 +21,8 @@ public class UserController {
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public Long createNewUser(@RequestBody @Valid User user) {
-        return userService.createNewUser(user);
+    public User createNewUser(@RequestBody @Valid UserDto userDto) {
+        return userService.createNewUser(userDto);
     }
 
     @GetMapping("/{id}")

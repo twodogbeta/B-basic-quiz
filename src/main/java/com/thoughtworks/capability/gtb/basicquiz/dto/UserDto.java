@@ -5,12 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Builder
-public class EducationDto {
-    private long year;
-    private String title;
-    private String description;
+public class UserDto {
+
+    String name;
+    Long age;
+    String avatar;
+    String description;
 }

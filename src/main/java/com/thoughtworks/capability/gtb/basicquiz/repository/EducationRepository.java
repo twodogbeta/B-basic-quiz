@@ -3,15 +3,24 @@ package com.thoughtworks.capability.gtb.basicquiz.repository;
 import com.thoughtworks.capability.gtb.basicquiz.domin.Education;
 import com.thoughtworks.capability.gtb.basicquiz.dto.EducationDto;
 import com.thoughtworks.capability.gtb.basicquiz.exception.UserNotFoundException;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Repository
-public class EducationRepository {
-    public static Map<Long, ArrayList<EducationDto>> educationMap = new HashMap<>();
+//public class EducationRepository {
+public interface EducationRepository extends JpaRepository<Education, Long>{
+    @Query(nativeQuery = true, value = "SELECT * FROM education WHERE user_id = :userId")
+    List<Education> findAllByUserId(@Param("userId") Long userId);
 
-    public EducationDto education2educationDto (Education education,long userId){
+       // public static Map<Long, ArrayList<EducationDto>> educationMap = new HashMap<>();
+
+  /*  public EducationDto education2educationDto (Education education,long userId){
         EducationDto educationDto = EducationDto.builder()
                 .userId(userId)
                 .title(education.getTitle())
@@ -31,13 +40,16 @@ public class EducationRepository {
     }
 
 
-    public ArrayList<EducationDto> getUserEducationsByUserId(long userId) throws UserNotFoundException {
+    public List<EducationDto> getUserEducationsByUserId(long userId) throws UserNotFoundException {
 
         ArrayList<EducationDto> educationInfo = educationMap.get(userId);
         if (educationInfo == null) {
             throw new UserNotFoundException("User does not exist!");
         } else {
-            Collections.sort(educationInfo, new Comparator<EducationDto>(){
+            return educationInfo.stream()
+                    .sorted(Comparator.comparing(EducationDto::getYear).reversed())
+                    .collect(Collectors.toList());
+      *//*      Collections.sort(educationInfo, new Comparator<EducationDto>(){
                 public int compare(EducationDto o1, EducationDto o2) {
                     //排序属性
                     if(o1.getYear() < o2.getYear()){
@@ -48,8 +60,8 @@ public class EducationRepository {
                     }
                     return 1;
                 }
-            });
-            return educationInfo;
+            });*//*
+
         }
-    }
+    }*/
 }

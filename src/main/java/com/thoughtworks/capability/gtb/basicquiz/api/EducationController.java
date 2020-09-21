@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -22,13 +22,13 @@ public class EducationController {
 
     @PostMapping("/{id}/educations")
     @ResponseStatus(HttpStatus.CREATED)
-    public Long addUserEducationInfoByUserId(@PathVariable Long id,
-                                             @RequestBody @Valid Education education) throws UserNotFoundException {
-       return educationService.addUserEducationsByUserId(id, education);
+    public Education addUserEducationInfoByUserId(@PathVariable Long id,
+                                                  @RequestBody @Valid EducationDto educationDto) throws UserNotFoundException {
+       return educationService.addUserEducationsByUserId(id, educationDto);
     }
 
     @GetMapping("/{id}/educations")
-    public ArrayList<EducationDto> getUserEducationInfoById(@PathVariable Long id) throws UserNotFoundException {
+    public List<Education> getUserEducationInfoById(@PathVariable Long id) throws UserNotFoundException {
         return educationService.getUserEducationsByUserId(id);
     }
 

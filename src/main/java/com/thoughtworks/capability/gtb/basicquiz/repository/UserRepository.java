@@ -1,14 +1,20 @@
 package com.thoughtworks.capability.gtb.basicquiz.repository;
+
 import com.thoughtworks.capability.gtb.basicquiz.domin.User;
 import com.thoughtworks.capability.gtb.basicquiz.exception.UserNotFoundException;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Repository
-public class UserRepository {
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findById(Long userId);
+}
+/*public class UserRepository {
     private Long userId = 1L;
     public static Map<Long, User> userMap = new HashMap<>();
 
@@ -29,4 +35,4 @@ public class UserRepository {
             return user;
         }
     }
-}
+}*/

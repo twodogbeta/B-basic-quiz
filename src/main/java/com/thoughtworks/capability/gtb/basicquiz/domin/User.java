@@ -1,18 +1,27 @@
 package com.thoughtworks.capability.gtb.basicquiz.domin;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
+@Entity
+@Table(name = "user")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotBlank(message = "姓名不能为空")
     @Size(max = 16 ,message = "参数不合法：名字长度范围应为1 - 128 bytes")
@@ -25,4 +34,8 @@ public class User {
     private String avatar;
     @Size(min = 0, max = 1024, message = "参数不合法:个人介绍信息长度范围应为0 - 1024 bytes")
     private String description;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    List<Education> educationList;
 }
