@@ -1,8 +1,9 @@
 package com.thoughtworks.capability.gtb.basicquiz.service;
 
-import com.thoughtworks.capability.gtb.basicquiz.domin.User;
+import com.thoughtworks.capability.gtb.basicquiz.domain.User;
 import com.thoughtworks.capability.gtb.basicquiz.dto.UserDto;
 import com.thoughtworks.capability.gtb.basicquiz.exception.UserNotFoundException;
+import com.thoughtworks.capability.gtb.basicquiz.repository.EducationRepository;
 import com.thoughtworks.capability.gtb.basicquiz.repository.UserRepository;
 import com.thoughtworks.capability.gtb.basicquiz.utils.Transverter;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, EducationRepository educationRepository) {
         this.userRepository = userRepository;
     }
 

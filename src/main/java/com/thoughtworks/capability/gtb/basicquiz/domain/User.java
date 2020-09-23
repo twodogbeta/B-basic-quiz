@@ -1,4 +1,4 @@
-package com.thoughtworks.capability.gtb.basicquiz.domin;
+package com.thoughtworks.capability.gtb.basicquiz.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;

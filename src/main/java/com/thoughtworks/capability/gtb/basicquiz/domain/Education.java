@@ -1,4 +1,4 @@
-package com.thoughtworks.capability.gtb.basicquiz.domin;
+package com.thoughtworks.capability.gtb.basicquiz.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

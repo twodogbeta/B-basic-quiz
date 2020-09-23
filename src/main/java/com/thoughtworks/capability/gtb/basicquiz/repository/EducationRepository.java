@@ -1,16 +1,11 @@
 package com.thoughtworks.capability.gtb.basicquiz.repository;
 
-import com.thoughtworks.capability.gtb.basicquiz.domin.Education;
-import com.thoughtworks.capability.gtb.basicquiz.dto.EducationDto;
-import com.thoughtworks.capability.gtb.basicquiz.exception.UserNotFoundException;
+import com.thoughtworks.capability.gtb.basicquiz.domain.Education;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Repository
 public interface EducationRepository extends JpaRepository<Education, Long>{

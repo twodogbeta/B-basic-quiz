@@ -1,13 +1,9 @@
 package com.thoughtworks.capability.gtb.basicquiz.repository;
 
-import com.thoughtworks.capability.gtb.basicquiz.domin.User;
-import com.thoughtworks.capability.gtb.basicquiz.exception.UserNotFoundException;
+import com.thoughtworks.capability.gtb.basicquiz.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @Repository

@@ -1,7 +1,7 @@
 package com.thoughtworks.capability.gtb.basicquiz.utils;
 
-import com.thoughtworks.capability.gtb.basicquiz.domin.Education;
-import com.thoughtworks.capability.gtb.basicquiz.domin.User;
+import com.thoughtworks.capability.gtb.basicquiz.domain.Education;
+import com.thoughtworks.capability.gtb.basicquiz.domain.User;
 import com.thoughtworks.capability.gtb.basicquiz.dto.EducationDto;
 import com.thoughtworks.capability.gtb.basicquiz.dto.UserDto;
 

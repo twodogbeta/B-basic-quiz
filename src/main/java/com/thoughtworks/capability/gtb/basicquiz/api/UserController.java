@@ -1,6 +1,6 @@
 package com.thoughtworks.capability.gtb.basicquiz.api;
 
-import com.thoughtworks.capability.gtb.basicquiz.domin.User;
+import com.thoughtworks.capability.gtb.basicquiz.domain.User;
 import com.thoughtworks.capability.gtb.basicquiz.dto.UserDto;
 import com.thoughtworks.capability.gtb.basicquiz.exception.UserNotFoundException;
 import com.thoughtworks.capability.gtb.basicquiz.service.UserService;
